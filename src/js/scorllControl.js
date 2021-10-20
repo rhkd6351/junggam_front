@@ -1,9 +1,9 @@
-import jquery from "jquery";
 import $ from "jquery";
 import "jquery-ui";
+import "jquery-ui-bundle";
+import "jquery-ui-bundle/jquery-ui.min.css";
 
 $(document).ready(function () {
-  let currentNav = false;
   let currentFvTitle = true;
   let currentSecondContent = true;
   let currentThirdContent = true;
@@ -13,54 +13,6 @@ $(document).ready(function () {
   $(window).scroll(function () {
     let scrollY = $(window).scrollTop();
 
-    //nav bar animation
-    if (scrollY > 100 && !currentNav) {
-      currentNav = true;
-      $(".header").css("border-bottom", "2px solid #f3f3f3").animate(
-        {
-          backgroundColor: "white",
-          height: "64px",
-        },
-        300
-      );
-      $(".header-content-wrapper").animate(
-        {
-          lineHeight: "64px",
-        },
-        300
-      );
-      $(".nav").animate(
-        {
-          lineHeight: "60px",
-        },
-        300
-      );
-    }
-    //nav bar animation
-    if (scrollY < 100 && currentNav) {
-      currentNav = false;
-      console.log("wow");
-      $(".header").css("border-bottom", "none").animate(
-        {
-          backgroundColor: "#efdbc6",
-          height: "137px",
-          border: "3px solid black",
-        },
-        300
-      );
-      $(".header-content-wrapper").animate(
-        {
-          lineHeight: "137px",
-        },
-        300
-      );
-      $(".nav").animate(
-        {
-          lineHeight: "70px",
-        },
-        300
-      );
-    }
     //favorite menu animation
     if (scrollY > 100 && !currentFvTitle) {
       currentFvTitle = true;

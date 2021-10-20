@@ -1,11 +1,9 @@
-.top,
-.top .header {
-  background-color: #efdbc6;
-}
 .top {
   font-family: "twayair";
+  background-color: #efdbc6;
 }
 .top:nth-child(2) {
+  background-color: #efdbc6;
   font-family: "twayair";
   height: 720px;
 }

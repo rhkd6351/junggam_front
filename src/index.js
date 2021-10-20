@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./Components/App";
-import "./js/scorllControl";
+// import "./js/scorllControl.js";
 
 ReactDOM.render(
   <React.StrictMode>

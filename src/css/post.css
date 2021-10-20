@@ -1,0 +1,29 @@
+.board-wrapper .board-post-top {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.board-wrapper .board-post-title {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #c4c4c4;
+  line-height: 50px;
+  padding: 0 15px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.board-wrapper .board-post-info {
+  display: flex;
+  justify-content: flex-start;
+}
+.board-wrapper .board-post-info .post-info-em {
+  margin-right: 20px;
+  padding: 15px 15px 15px 5px;
+}
+.board-wrapper .board-post-content {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  padding: 15px;
+}

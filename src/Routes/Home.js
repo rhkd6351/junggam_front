@@ -1,7 +1,138 @@
-import React from "react";
+import React, { useEffect } from "react";
 import danielImage from "../img/daniel.png";
+import HomeBoard from "../Components/Home/HomeBoard";
+import "../css/style.css";
+import $ from "jquery";
+import "jquery-ui";
+import "jquery-ui-bundle";
+import "jquery-ui-bundle/jquery-ui.min.css";
 
 const Home = () => {
+  let currentFvTitle = false;
+  let currentSecondContent = true;
+  let currentThirdContent = true;
+  let currentFourthContent = true;
+  const scrollEventListner = () => {
+    let scrollY = $(window).scrollTop();
+    //favorite menu animation
+    if (scrollY > 100 && !currentFvTitle) {
+      currentFvTitle = true;
+      $(".favorite-menu-item").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        300
+      );
+    } else if (scrollY < 50 && currentFvTitle) {
+      currentFvTitle = false;
+      $(".favorite-menu-item").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        300
+      );
+    }
+    // second menu animation
+    if (scrollY > 540 && !currentSecondContent) {
+      currentSecondContent = true;
+      $(".main-second-left").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        600
+      );
+    } else if (scrollY < 300 && currentSecondContent) {
+      currentSecondContent = false;
+      $(".main-second-left").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        600
+      );
+    }
+
+    // third menu animation
+    if (scrollY > 1400 && !currentThirdContent) {
+      currentThirdContent = true;
+      $(".bottom-intro-left").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        600
+      );
+      $(".bottom-intro-right").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        600
+      );
+    } else if (scrollY < 1000 && currentThirdContent) {
+      currentThirdContent = false;
+      $(".bottom-intro-left").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        600
+      );
+      $(".bottom-intro-right").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        600
+      );
+    }
+
+    // fourth menu animation
+    if (scrollY > 2340 && !currentFourthContent) {
+      currentFourthContent = true;
+      $(".bottom-map-title").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        600
+      );
+      $(".bottom-map-image").animate(
+        {
+          opacity: "100%",
+          marginTop: "0px",
+        },
+        600
+      );
+    } else if (scrollY < 1500 && currentFourthContent) {
+      currentFourthContent = false;
+      $(".bottom-map-title").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        600
+      );
+      $(".bottom-map-image").animate(
+        {
+          opacity: "0%",
+          marginTop: "50px",
+        },
+        600
+      );
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollEventListner);
+    return () => {
+      window.removeEventListener("scroll", scrollEventListner);
+    };
+  });
+
   return (
     <>
       <div className="top">
@@ -51,55 +182,8 @@ const Home = () => {
       </div>
 
       <div className="main-second-menu">
-        <div className="main-second-left">
-          <div className="main-second-left-header">
-            <div className="header-title">정감소식</div>
-            <div className="header-plus">더보기+</div>
-          </div>
-          <div className="main-second-left-list">
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 교회 소식</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 교회 소식</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 교회 소식</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 교회 소식</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-          </div>
-        </div>
-
-        <div className="main-second-left">
-          <div className="main-second-left-header">
-            <div className="header-title">갤러리</div>
-            <div className="header-plus">더보기+</div>
-          </div>
-          <div className="main-second-left-list">
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 갤러리</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 갤러리</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 갤러리</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-            <div className="main-second-left-em">
-              <div className="em-title">첫번째 정감있는 갤러리</div>
-              <eiv className="em-date">2021.10.08</eiv>
-            </div>
-          </div>
-        </div>
+        <HomeBoard boardNo={1} /> {/* 정감소식 */}
+        <HomeBoard boardNo={2} /> {/* 갤러리 */}
       </div>
 
       <div className="intercept-banner">
@@ -175,17 +259,6 @@ const Home = () => {
             031-378-1491
           </div>
         </div>
-      </div>
-
-      <div className="footer">
-        <div className="footer-text">
-          담 임 : 임 형 만 목사 T. 010-5613-8865
-          <br />
-          경기도 오산시 독산성로 281-20(지곶동 32번지) 18102
-          <br />
-          ☏031-378-1491
-        </div>
-        <div className="footer-icons"></div>
       </div>
     </>
   );

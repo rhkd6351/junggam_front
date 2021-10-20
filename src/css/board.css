@@ -1,0 +1,187 @@
+.top-board {
+  background-color: #eeefc6;
+  font-family: "twayair";
+}
+.top-board:nth-child(2) {
+  height: 320px;
+}
+.top-board .header {
+  width: 100%;
+  background-color: #eeefc6;
+  z-index: 10;
+  height: 137px;
+  position: fixed;
+}
+.top-board .header .header-content-wrapper {
+  display: flex;
+  width: 1112px;
+  line-height: 137px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+.top-board .header .header-title {
+  font-size: 32px;
+  width: 30%;
+  text-align: left;
+}
+.top-board .header .nav {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  width: 70%;
+  justify-content: space-around;
+  color: #505050;
+  line-height: 70px;
+}
+/* .top-board .header .nav .nav-em:nth-child(3) {
+  border-bottom: 3px solid #22ab59;
+} */
+.top-board .top-banner {
+  width: 1112px;
+  height: 200px;
+  margin: 0 auto;
+  font-family: "Elice DigitalBaeum";
+  padding-top: 137px;
+  display: flex;
+}
+.top-board .top-banner .banner-left {
+  width: 60%;
+}
+.top-board .top-banner .banner-left .banner-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: #413b3a;
+  margin-top: 20px;
+  margin-bottom: 19px;
+  line-height: 90px;
+}
+.top-board .top-banner .banner-left .banner-subtitle {
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 32px;
+}
+.top-board .top-banner .banner-left .banner-desc {
+  margin-top: 20px;
+  font-size: 16px;
+}
+.top-board .banner-right .banner-image {
+  margin: 40px auto 0;
+  width: 430px;
+  height: 436px;
+  left: 846px;
+  top: 177px;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.5);
+}
+.top-board .banner-right .banner-image .img {
+  height: 436px;
+  /* background: url("/img/image 4.png"); */
+  background-repeat: no-repeat;
+  background-position: -170px -130px;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.5);
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.board-wrapper {
+  width: 1112px;
+  margin: 50px auto;
+}
+.board-wrapper .board {
+  display: flex;
+  flex-direction: column;
+}
+.board-wrapper .board .list-em {
+  display: flex;
+  width: 1112px;
+  justify-content: stretch;
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #d3d3d3;
+}
+.board-wrapper .board .list-em:first-child {
+  background-color: #f6f6f6;
+  border-top: 1px solid #7b7b7b;
+  font-weight: 700;
+}
+.board-wrapper .board .list-em:last-child {
+  border-bottom: 1px solid #7b7b7b;
+}
+.board-wrapper .board .list-em .list-em-idx {
+  text-align: center;
+  width: 50px;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.board-wrapper .board .list-em .list-em-title,
+.board-wrapper .board .list-em .list-em-writer {
+  text-align: center;
+  width: 600px;
+  flex-grow: 2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.board-wrapper .board .list-em .list-em-writer {
+  width: 150px;
+  flex-grow: 1;
+}
+.board-wrapper .board .list-em .list-em-regDate,
+.board-wrapper .board .list-em .list-em-views {
+  text-align: center;
+  width: 100px;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.board-wrapper .board .list-em .list-em-views {
+  width: 50px;
+}
+.board-wrapper .board-bottom {
+  margin-top: 30px;
+  display: flex;
+  width: 1112px;
+  justify-content: space-between;
+}
+.board-wrapper .board-bottom .board-number {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 700;
+}
+.board-wrapper .board-bottom .board-write-button {
+  width: 85px;
+  color: #fff;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 15px;
+  background-color: #22ab59;
+  -ms-grid-column-align: right;
+  justify-self: right;
+}
+.footer {
+  width: 100%;
+  height: 150px;
+  background-color: #e1e1e1;
+  padding-top: 40px;
+}
+.footer .footer-text {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 30px;
+}
+.footer .footer-icons {
+  font-size: 26px;
+  width: 120px;
+  margin: 10px auto;
+}
