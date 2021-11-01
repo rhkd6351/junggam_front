@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 const MyRouter = ({ token, setToken, ...props }) => {
   return (
     <>
-      <Router>
+      <Router basename={process.env.REACT_APP_PUBLIC_URL}>
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route path="/" component={Navigation} />
