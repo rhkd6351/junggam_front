@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/junggam_front/static/css/main.64e6f830.chunk.css",
-    "main.js": "/junggam_front/static/js/main.1173f940.chunk.js",
-    "main.js.map": "/junggam_front/static/js/main.1173f940.chunk.js.map",
+    "main.js": "/junggam_front/static/js/main.ecbe26e4.chunk.js",
+    "main.js.map": "/junggam_front/static/js/main.ecbe26e4.chunk.js.map",
     "runtime-main.js": "/junggam_front/static/js/runtime-main.2f9b979e.js",
     "runtime-main.js.map": "/junggam_front/static/js/runtime-main.2f9b979e.js.map",
     "static/css/2.0abf1914.chunk.css": "/junggam_front/static/css/2.0abf1914.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.0abf1914.chunk.css",
     "static/js/2.b7432bdb.chunk.js",
     "static/css/main.64e6f830.chunk.css",
-    "static/js/main.1173f940.chunk.js"
+    "static/js/main.ecbe26e4.chunk.js"
   ]
 }
