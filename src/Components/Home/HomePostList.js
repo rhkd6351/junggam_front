@@ -1,6 +1,7 @@
 import axios from "axios";
-import { post } from "jquery";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ip } from "../../config/config";
 
 const HomePostList = ({ board }) => {
   const [posts, setPosts] = useState();
@@ -11,7 +12,7 @@ const HomePostList = ({ board }) => {
 
   const getPostList = () => {
     axios
-      .get(`http://localhost:8080/api/board/${board.idx}/posts?pno=1`)
+      .get(`${ip}/api/board/${board.idx}/posts?pno=1`)
       .then((response) => {
         setPosts(response.data.posts.slice(0, 4));
       })
@@ -27,8 +28,12 @@ const HomePostList = ({ board }) => {
           ? "loading..."
           : posts.map((em) => {
               return (
-                <div className="main-second-left-em">
-                  <div className="em-title">{em.title}</div>
+                <div className="main-second-left-em" key={em.idx}>
+                  <div className="em-title">
+                    <Link to={"/board/" + board.idx + "/post/" + em.idx}>
+                      {em.title}
+                    </Link>
+                  </div>
                   <eiv className="em-date">{em.regDate.split("T")[0]}</eiv>
                 </div>
               );

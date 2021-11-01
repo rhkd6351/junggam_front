@@ -1,4 +1,3 @@
-import react from "react";
 import MyRouter from "./Router";
 import "../css/reset.css";
 

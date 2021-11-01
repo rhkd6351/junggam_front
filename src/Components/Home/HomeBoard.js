@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import HomePostList from "./HomePostList";
 import { Link } from "react-router-dom";
+import { ip } from "../../config/config";
 
 const HomeBoard = ({ boardNo }) => {
   const [board, setBoard] = useState();
@@ -12,10 +13,9 @@ const HomeBoard = ({ boardNo }) => {
 
   const getBoardByIdx = async (idx) => {
     await axios
-      .get(`http://localhost:8080/api/board/${idx}`)
+      .get(`${ip}/api/board/${idx}`)
       .then((response) => {
         setBoard(response.data);
-        // console.log(response);
       })
       .catch((error) => {
         console.log(error);

@@ -5,16 +5,19 @@ import "jquery-ui-bundle/jquery-ui.min.css";
 import "../css/board.css";
 import PostList from "../Components/Board/PostList";
 import axios from "axios";
-import { Route, Router, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import PostEdit from "../Components/Board/PostEdit";
 import Post from "../Components/Board/Post";
+import Weekly from "../Components/Board/weekly/Weekly";
+import WeeklyEdit from "../Components/Board/weekly/WeeklyEdit";
+import { ip } from "../config/config";
 
 const Board = (props) => {
   const [board, setBoard] = useState();
 
   const getBoardByIdx = async (idx) => {
     await axios
-      .get(`http://localhost:8080/api/board/${idx}`)
+      .get(`${ip}/api/board/${idx}`)
       .then((response) => {
         setBoard(response.data);
       })
@@ -24,6 +27,7 @@ const Board = (props) => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getBoardByIdx(props.match.params.idx);
   }, [props.match.params.idx]);
 
@@ -42,7 +46,7 @@ const Board = (props) => {
         </div>
       ) : (
         <div className="top-board">
-          <div className="top-banner">
+          <div className="top-board-banner">
             <div className="banner-left">
               <div className="banner-title">
                 {board.title} <br />
@@ -57,17 +61,33 @@ const Board = (props) => {
         <Route exact path="/board/:idx">
           <PostList board={board} boardIdx={props.match.params.idx} />
         </Route>
-        <Route exact path="/board/:idx/post/:postIdx" component={Post}></Route>
-        <Route
-          exact
-          path="/board/:idx/post/:postIdx/edit"
-          component={PostEdit}
-        ></Route>
-        <Route
-          exact
-          path="/board/:idx/post/new/edit"
-          component={PostEdit}
-        ></Route>
+        {board && board.idx === 3 ? (
+          <>
+            <Route
+              exact
+              path="/board/:idx/post/:postIdx"
+              component={Weekly}
+            ></Route>
+            <Route
+              exact
+              path="/board/:idx/post/:postIdx/edit"
+              component={WeeklyEdit}
+            ></Route>
+          </>
+        ) : (
+          <>
+            <Route
+              exact
+              path="/board/:idx/post/:postIdx"
+              component={Post}
+            ></Route>
+            <Route
+              exact
+              path="/board/:idx/post/:postIdx/edit"
+              component={PostEdit}
+            ></Route>
+          </>
+        )}
       </Switch>
     </>
   );

@@ -1,8 +1,9 @@
 import axios, { Axios } from "axios";
 import React from "react";
+import { ip } from "../config/config";
 
 class AxiosApi {
-  baseUrl = "http://localhost:8080/api";
+  baseUrl = ip;
 
   getBoardByIdx = (idx) => {
     const url = this.baseUrl + "/board";

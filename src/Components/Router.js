@@ -1,21 +1,25 @@
-import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Board from "../Routes/Board";
 import Home from "../Routes/Home";
 import Footer from "./Footer";
+import Login from "./Login";
 import Navigation from "./Navigation";
 
-const MyRouter = () => {
+const MyRouter = ({ token, setToken, ...props }) => {
   return (
     <>
       <Router>
-        <Route path="/board/:idx" component={Navigation} />
-        <Route path="/board/:idx" component={Board} />
-
-        <Route exact path="/" component={Navigation} />
-        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route path="/" component={Navigation} />
+        </Switch>
+        {/* <Route path="/board" component={Navigation} /> */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/board/:idx" component={Board} />
+        </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </>
   );
 };

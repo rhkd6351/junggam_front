@@ -1,18 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "../../../css/post.css";
+import { Document, Page, pdfjs } from "react-pdf";
 import { useCookies } from "react-cookie";
 import { useHistory } from "react-router";
-import "../../css/post.css";
-import { ip } from "../../config/config";
+import { ip } from "../../../config/config";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const Post = (props) => {
+const Weekly = (props) => {
   const [post, setPost] = useState();
-  const history = useHistory();
+  const [pageNumber, setPageNumber] = useState(1);
   const [cookies] = useCookies();
+  const history = useHistory();
 
   useEffect(() => {
     getPost();
-  }, [props.match.params.postIdx]);
+  }, [props.match.params.postIdx, ip]);
 
   const getPost = async () => {
     const postIdx = props.match.params.postIdx;
@@ -52,7 +55,7 @@ const Post = (props) => {
     if (!window.confirm("정말로 삭제하시겠습니까?")) return;
 
     await axios
-      .delete(`${ip}/api/board/post/` + post.idx, {
+      .delete(`${ip}/api/board/post/${post.idx}`, {
         headers: {
           Authorization: "Bearer " + cookies["junggam-token"],
         },
@@ -82,10 +85,36 @@ const Post = (props) => {
               작성일: {post.regDate.split("T")[0]}
             </div>
           </div>
-          <div
-            dangerouslySetInnerHTML={{ __html: post.content }}
-            className="board-post-content"
-          ></div>
+          <div className="pdf-wrapper">
+            <Document
+              className="pdf-document"
+              style={{ margin: "0 auto" }}
+              height="100"
+              width="100"
+              file={post.content}
+              onLoadSuccess={() => {
+                console.log("object");
+              }}
+              onLoadError={(error) => {
+                console.log(error);
+              }}
+            >
+              <Page pageNumber={pageNumber} />
+            </Document>
+            <Document
+              style={{ border: "1px solid black" }}
+              width="10"
+              file={post.content}
+              onLoadSuccess={() => {
+                console.log("object");
+              }}
+              onLoadError={(error) => {
+                console.log(error);
+              }}
+            >
+              <Page pageNumber={pageNumber + 1} />
+            </Document>
+          </div>
           <div className="post-nav">
             <button className="post-nav-edit" onClick={onEditClick}>
               수정
@@ -100,4 +129,4 @@ const Post = (props) => {
   );
 };
 
-export default Post;
+export default Weekly;

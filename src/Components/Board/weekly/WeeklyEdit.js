@@ -1,22 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "../../../css/post.css";
 import { useCookies } from "react-cookie";
-import "../../css/post.css";
-import TextEditor from "./TextEditor";
-import { ip } from "../../config/config";
+import { ip } from "../../../config/config";
 
-const PostEdit = ({ history, ...props }) => {
+const WeeklyEdit = ({ history, ...props }) => {
   const [post, setPost] = useState();
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const [cookies] = useCookies(["junggam-token"]);
 
   useEffect(() => {
+    console.log(props.match.params.postIdx);
     if (props.match.params.postIdx === "new") {
     } else {
       getPost();
     }
-  }, [props.match.params.postIdx]);
+  }, []);
 
   const onPostSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const PostEdit = ({ history, ...props }) => {
     if (post) {
       await axios
         .post(
-          `${ip}:8080/api/board/${props.match.params.idx}/post`,
+          `${ip}/api/board/${props.match.params.idx}/post`,
           {
             idx: post.idx,
             title: title,
@@ -95,20 +95,29 @@ const PostEdit = ({ history, ...props }) => {
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
-    console.log(title);
+  };
+
+  const onFileUploadHandler = async (e) => {
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    await axios
+      .post(`${ip}/api/file`, formData, {
+        headers: {
+          Authorization: "Bearer " + cookies["junggam-token"],
+        },
+      })
+      .then((response) => {
+        setContent(response.data.message);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <>
       {!post ? (
-        <form
-          onSubmit={onPostSubmit}
-          className="post-form"
-          method="POST"
-          action={`${ip}/api/board/
-            ${props.match.params.idx}
-          /post`}
-        >
+        <form onSubmit={onPostSubmit} className="post-form" method="POST">
           <div className="board-wrapper">
             <div className="board-post-top">글 작성</div>
             <input
@@ -117,19 +126,24 @@ const PostEdit = ({ history, ...props }) => {
               value={title}
               style={{ marginBottom: "30px" }}
             />
-            <TextEditor setContent={setContent} content={content} />
-            <input className="post-nav-edit" type="submit" value="게시하기" />
+            <h3 style={{ fontSize: "20px", fontWeight: "800" }}>
+              PDF 파일 선택
+            </h3>
+            <br />
+            <input type="file" onChange={onFileUploadHandler} />
+            <input
+              type="submit"
+              value="게시하기"
+              style={{
+                float: "right",
+                backgroundColor: "white",
+                border: "2px solid black",
+              }}
+            />
           </div>
         </form>
       ) : (
-        <form
-          onSubmit={onPostSubmit}
-          className="post-form"
-          method="POST"
-          action={`${ip}/api/board/
-            ${props.match.params.idx}
-            /post`}
-        >
+        <form onSubmit={onPostSubmit} className="post-form" method="POST">
           <div className="board-wrapper">
             <div className="board-post-top">글 작성</div>
             <input
@@ -138,8 +152,20 @@ const PostEdit = ({ history, ...props }) => {
               value={title}
               style={{ marginBottom: "30px" }}
             />
-            <TextEditor setContent={setContent} content={content} />
-            <input className="post-nav-edit" type="submit" value="게시하기" />
+            <h3 style={{ fontSize: "20px", fontWeight: "800" }}>
+              PDF 파일 선택 (파일 선택 안할시 기존파일 유지)
+            </h3>
+            <br />
+            <input type="file" onChange={onFileUploadHandler} />
+            <input
+              type="submit"
+              value="게시하기"
+              style={{
+                float: "right",
+                backgroundColor: "white",
+                border: "2px solid black",
+              }}
+            />
           </div>
         </form>
       )}
@@ -147,4 +173,4 @@ const PostEdit = ({ history, ...props }) => {
   );
 };
 
-export default PostEdit;
+export default WeeklyEdit;

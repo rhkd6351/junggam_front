@@ -27,3 +27,66 @@
   border-radius: 10px;
   padding: 15px;
 }
+
+.react-pdf__Page {
+  size: 0.5rem;
+}
+.pdf-wrapper {
+  width: 1112px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+.post-nav {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.post-nav-edit,
+.post-nav-delete {
+  margin: 10px;
+  border: none;
+  background-color: white;
+  height: 40px;
+  width: 80px;
+}
+
+.post-nav-edit {
+  background-color: rgb(196, 189, 225);
+}
+
+.post-nav-edit:hover {
+  background-color: rgb(115, 105, 160);
+  font-weight: bold;
+  color: white;
+}
+
+.post-nav-delete {
+  background-color: rgb(225, 189, 189);
+}
+.post-nav-delete:hover {
+  background-color: rgb(160, 105, 105);
+  font-weight: bold;
+  color: white;
+}
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+  width: 100% !important;
+  height: 100% !important;
+}
+.react-pdf__Page__textContent {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .pdf-wrapper {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .pdf-wrapper {
+    width: 320px;
+  }
+}

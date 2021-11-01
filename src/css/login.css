@@ -1,0 +1,30 @@
+.login-wrapper {
+  height: 100vh;
+}
+.login-box {
+  margin: auto;
+  margin-top: calc(50vh - 150px);
+  width: 300px;
+  height: 300px;
+  border: 1px solid #eaeaeb;
+  text-align: center;
+  background-color: #f3f3f3;
+  border-radius: 30px;
+  box-shadow: 0px 3px 5px rgb(126, 126, 126);
+}
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 40px 0;
+}
+.login-input {
+  margin: 20px;
+}
+.login-input-bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+.login-input > input[type="submit"] {
+  background-color: white;
+  margin-right: 40px;
+}
