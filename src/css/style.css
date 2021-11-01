@@ -530,17 +530,14 @@
   }
 
   .main-favorite-menu .favorite-menu-items .favorite-menu-item:nth-child(1) {
-    background-image: url(https://junggam.click/api/img/f23700e7-dcb1-4d74-b957-ff1aba68a641/);
     background-repeat: no-repeat;
     background-position: 200px -10px;
   }
   .main-favorite-menu .favorite-menu-items .favorite-menu-item:nth-child(2) {
-    background-image: url(https://junggam.click/api/img/2edbcd99-ecb7-4c7f-8e2c-60a6921ccb11/);
     background-repeat: no-repeat;
     background-position: 200px 10px;
   }
   .main-favorite-menu .favorite-menu-items .favorite-menu-item:nth-child(3) {
-    background-image: url(https://junggam.click/api/img/03153c8d-b1e5-42fd-8c63-b72ac9994e1d/);
     background-repeat: no-repeat;
     background-position: 220px 10px;
     margin-bottom: 0px;

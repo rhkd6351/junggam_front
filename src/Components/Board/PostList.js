@@ -14,7 +14,7 @@ const PostList = ({ boardIdx }) => {
   const [firstWord, setFirstWord] = useState();
 
   const getFirstIfBible = (posts) => {
-    if (!(boardIdx === 5)) return;
+    if (!(boardIdx == 5)) return;
 
     setFirstWord(posts[0]);
   };
@@ -56,11 +56,15 @@ const PostList = ({ boardIdx }) => {
   useEffect(() => {
     setPage(1);
     getPostList();
-  }, [boardIdx, page]);
+  }, [boardIdx]);
+
+  useEffect(() => {
+    getPostList();
+  }, [page]);
 
   return (
     <>
-      {boardIdx === 5 && firstWord && (
+      {boardIdx == 5 && firstWord && (
         <div className="bible-wrapper">
           <div
             className="bible-title"
