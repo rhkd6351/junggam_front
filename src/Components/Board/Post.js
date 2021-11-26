@@ -20,6 +20,7 @@ const Post = (props) => {
       .get(`${ip}/api/board/post/${postIdx}`)
       .then((response) => {
         setPost(response.data);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);

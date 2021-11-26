@@ -33,7 +33,7 @@
 }
 .top .header .header-title {
   font-size: 32px;
-  width: 30%;
+  width: 40%;
   text-align: left;
 }
 .top .header .nav {
@@ -244,8 +244,8 @@
   justify-content: space-between;
 }
 .bottom .bottom-intro .bottom-intro-left {
-  width: 570px;
-  height: 673px;
+  width: 1120px;
+  min-height: 673px;
   text-align: center;
 }
 .bottom .bottom-intro .bottom-intro-left .bottom-intro-left-title {
@@ -267,7 +267,7 @@
   font-size: 20px;
   font-weight: 100;
 }
-.bottom .bottom-intro .bottom-intro-right {
+/* .bottom .bottom-intro .bottom-intro-right {
   margin-top: -25px;
   width: 455px;
   height: 631px;
@@ -275,7 +275,7 @@
   background-position-x: -200px;
   background-repeat: no-repeat;
   background-image: url(https://junggam.click/api/img/c44cb7a1-1b03-40b2-a602-1af5ce12875c/);
-}
+} */
 .bottom .bottom-intro,
 .bottom .bottom-map {
   width: 1112px;
@@ -414,8 +414,6 @@
   }
   .bottom .bottom-intro .bottom-intro-left {
     width: 600px;
-    height: 673px;
-    text-align: center;
   }
   .bottom .bottom-intro .bottom-intro-left .bottom-intro-left-content {
     line-height: 50px;
@@ -583,11 +581,9 @@
   }
   .bottom .bottom-intro .bottom-intro-left {
     width: 320px;
-    height: 673px;
-    text-align: center;
   }
   .bottom .bottom-intro .bottom-intro-left .bottom-intro-left-title {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
   }
   .bottom .bottom-intro .bottom-intro-left .bottom-intro-left-content {

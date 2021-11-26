@@ -166,24 +166,47 @@ const Navigation = ({ ...props }) => {
     };
   });
 
+  const dropMenuClickManager = () => {
+    setIsMenuOn(false);
+    $(".drop-menu")
+      .animate(
+        {
+          opacity: "0%",
+        },
+        300
+      )
+      .delay(300)
+      .css("display", "none");
+  };
+
   return (
     <>
       <div className="top">
         <div className="drop-menu">
           <li className="drop-menu-em">
-            <Link to="/">메인</Link>
+            <Link to="/" onClick={dropMenuClickManager}>
+              메인
+            </Link>
           </li>
           <li className="drop-menu-em">
-            <Link to="/board/1">정감소식</Link>
+            <Link to="/board/1" onClick={dropMenuClickManager}>
+              정감소식
+            </Link>
           </li>
           <li className="drop-menu-em">
-            <Link to="/board/2">갤러리</Link>
+            <Link to="/board/2" onClick={dropMenuClickManager}>
+              갤러리
+            </Link>
           </li>
           <li className="drop-menu-em">
-            <Link to="/board/3">주보</Link>
+            <Link to="/board/3" onClick={dropMenuClickManager}>
+              주보
+            </Link>
           </li>
           <li className="drop-menu-em">
-            <Link to="/board/6">칼럼</Link>
+            <Link to="/board/6" onClick={dropMenuClickManager}>
+              칼럼
+            </Link>
           </li>
         </div>
         <div className="header" style={{ backgroundColor: color }}>
